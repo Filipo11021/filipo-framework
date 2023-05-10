@@ -1,8 +1,8 @@
 {
-  "name": "@filipo/framework",
+  "name": "@filipo/reactivity",
   "version": "0.0.0",
-  "main": "./public-api.ts",
-  "types": "./public-api.ts",
+  "main": "./src/public-api.ts",
+  "types": "./src/public-api.ts",
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.ts*\"",

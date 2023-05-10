@@ -8,7 +8,7 @@ export function signal<Value>(initialValue: Value) {
   const subscribers = new Set<Subscriber>();
 
   function getter() {
-    const currentSubscriber = context.at(-1);
+    const currentSubscriber = context[context.length - 1];
     if (currentSubscriber) {
       subscribers.add(currentSubscriber);
       currentSubscriber.dependencies.add(subscribers);
