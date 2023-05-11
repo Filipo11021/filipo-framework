@@ -68,5 +68,6 @@ module.exports = {
     'prefer-const': 'error',
     'require-await': 'error',
     'linebreak-style': ['error', 'unix'],
+    "@typescript-eslint/no-namespace": "off"
   },
 };

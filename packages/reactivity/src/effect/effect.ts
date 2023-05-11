@@ -1,5 +1,6 @@
 import { context } from "../shared";
-import { Subscriber } from "../types";
+
+import type { Subscriber } from "../types";
 
 function cleanup(subscriber: Subscriber) {
   for (const dependency of subscriber.dependencies) {
