@@ -1,20 +1,22 @@
 {
-  "name": "@filipo/framework",
-  "version": "0.0.0",
-  "main": "./public-api.ts",
-  "types": "./public-api.ts",
-  "license": "MIT",
-  "scripts": {
-    "lint": "eslint \"**/*.ts*\"",
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "@filipo/reactivity": "workspace:*",
-    "eslint": "7.32.0",
-    "eslint-config-custom": "workspace:*",
-    "jsdom": "22.0.0",
-    "tsconfig": "workspace:*",
-    "typescript": "4.5.2",
-    "vitest": "0.31.0"
-  }
+	"name": "@filipo/framework",
+	"version": "0.0.0",
+	"main": "./public-api.ts",
+	"types": "./public-api.ts",
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint \"**/*.ts*\"",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"eslint": "7.32.0",
+		"eslint-config-custom": "workspace:*",
+		"jsdom": "22.0.0",
+		"tsconfig": "workspace:*",
+		"typescript": "4.5.2",
+		"vitest": "0.31.0"
+	},
+	"dependencies": {
+		"@filipo/reactivity": "workspace:*"
+	}
 }
