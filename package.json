@@ -4,14 +4,20 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md,cjs,js,mjs}\""
   },
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "2.8.8",
     "turbo": "1.9.3"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "filipo-framework"
+  "name": "filipo-framework",
+  "lint-staged": {
+    "*.{ts,tsx,jsx,js,mjs,cjs}": "npm run lint",
+    "*.{md,ts,tsx,js,cjs,mjs}": "npm run format"
+  }
 }
