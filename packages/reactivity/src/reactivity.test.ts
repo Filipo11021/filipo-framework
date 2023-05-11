@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { signal } from "./signal/signal";
+
 import { effect } from "./effect/effect";
+import { signal } from "./signal/signal";
 
 describe("effect + signal", () => {
   test("reaction to set new value", () => {

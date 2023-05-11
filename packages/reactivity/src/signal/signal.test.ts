@@ -1,4 +1,5 @@
 import { describe, expect, test } from "vitest";
+
 import { signal } from "./signal";
 
 describe("create and update signals", () => {

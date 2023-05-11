@@ -1,6 +1,8 @@
 import { describe, expect, test } from "vitest";
-import { effect } from "./effect";
+
 import { context } from "../shared";
+
+import { effect } from "./effect";
 
 describe("effect", () => {
   test("create effect", () => {
