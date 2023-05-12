@@ -13,7 +13,7 @@ export function applyChild(
     effect(() => {
       if (child) text.textContent = String(child());
     });
-6
+
     element.append(text);
     return;
   }
