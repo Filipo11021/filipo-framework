@@ -1,58 +1,62 @@
-import {effect} from '@filipo/reactivity'
+import { effect } from '@filipo/reactivity';
 
 import { applyChildren } from './apply-children';
 
-import type { Attributes, Child, ComponentFactory } from "./types";
+import type { Attributes, Child, ComponentFactory } from './types';
 
-export function createElement(tag: string | ComponentFactory, attrs: null | Attributes,...children: Child[]) {
-  if (typeof tag === 'function') {
-    return tag({...attrs, children})
-  }
+export function createElement(
+	tag: string | ComponentFactory,
+	attrs: null | Attributes,
+	...children: Child[]
+) {
+	if (typeof tag === 'function') {
+		return tag({ ...attrs, children });
+	}
 
-  const element = document.createElement(tag)
+	const element = document.createElement(tag);
 
-  if (attrs) {
-    for (const name of Object.keys(attrs)) {
-      const value = attrs[name];
+	if (attrs) {
+		for (const name of Object.keys(attrs)) {
+			const value = attrs[name];
 
-      if (name.startsWith("on")) {
-        const eventName = name.toLocaleLowerCase().substring(2);
-        if (typeof value !== 'function') continue
-        // eslint-disable-next-line
-        //@ts-ignore
-        element.addEventListener(eventName, value); 
-        continue;
-      }
+			if (name.startsWith('on')) {
+				const eventName = name.toLocaleLowerCase().substring(2);
+				if (typeof value !== 'function') continue;
+				// eslint-disable-next-line
+				//@ts-ignore
+				element.addEventListener(eventName, value);
+				continue;
+			}
 
-      if (typeof value === "function") {
-        effect(() => {
-          element.setAttribute(name, String(value()))
-        });
-        continue;
-      }
+			if (typeof value === 'function') {
+				effect(() => {
+					element.setAttribute(name, String(value()));
+				});
+				continue;
+			}
 
-      if (typeof value === "boolean") {
-        if (value) {
-          element.setAttribute(name, "true");
-          continue;
-        }
-        element.removeAttribute(name);
-        continue;
-      }
+			if (typeof value === 'boolean') {
+				if (value) {
+					element.setAttribute(name, 'true');
+					continue;
+				}
+				element.removeAttribute(name);
+				continue;
+			}
 
-      element.setAttribute(name, String(value));
-    }
-  }
+			element.setAttribute(name, String(value));
+		}
+	}
 
-  applyChildren(element, children);
+	applyChildren(element, children);
 
-  return element;
+	return element;
 }
 
 export function Fragment({ children }: { children: HTMLElement[] }) {
-  const el = document.createDocumentFragment();
-  for (const child of children) {
-    el.append(child);
-  }
-  return el;
+	const el = document.createDocumentFragment();
+	for (const child of children) {
+		el.append(child);
+	}
+	return el;
 }

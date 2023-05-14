@@ -55,9 +55,9 @@ describe('jsx transformer', () => {
 			</div>
 		);
 
-		expect(el.querySelector("h1")?.textContent).toBe("0")
-    const btn = el.querySelector("button")
-    btn?.click()
-    expect(el.querySelector("h1")?.textContent).toBe("1")
+		expect(el.querySelector('h1')?.textContent).toBe('0');
+		const btn = el.querySelector('button');
+		btn?.click();
+		expect(el.querySelector('h1')?.textContent).toBe('1');
 	});
 });

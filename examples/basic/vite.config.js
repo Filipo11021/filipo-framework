@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  esbuild: {
-    jsxInject: "import {createElement, Fragment} from \"@filipo/framework\";"
-  },
-})
+	esbuild: {
+		jsxInject: 'import {createElement, Fragment} from "@filipo/framework";',
+	},
+});

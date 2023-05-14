@@ -1,29 +1,29 @@
-import { context } from "../shared";
+import { context } from '../shared';
 
-import type { Subscriber } from "../types";
+import type { Subscriber } from '../types';
 
 type NewValue<Value> = Value | ((prevValue: Value) => Value);
 
 export function signal<Value>(initialValue: Value) {
-  let currentValue = initialValue;
-  const subscribers = new Set<Subscriber>();
+	let currentValue = initialValue;
+	const subscribers = new Set<Subscriber>();
 
-  function getter() {
-    const currentSubscriber = context[context.length - 1];
-    if (currentSubscriber) {
-      subscribers.add(currentSubscriber);
-      currentSubscriber.dependencies.add(subscribers);
-    }
+	function getter() {
+		const currentSubscriber = context[context.length - 1];
+		if (currentSubscriber) {
+			subscribers.add(currentSubscriber);
+			currentSubscriber.dependencies.add(subscribers);
+		}
 
-    return currentValue;
-  }
+		return currentValue;
+	}
 
-  function setter(newValue: NewValue<Value>) {
-    currentValue =
-      newValue instanceof Function ? newValue(currentValue) : newValue;
+	function setter(newValue: NewValue<Value>) {
+		currentValue =
+			newValue instanceof Function ? newValue(currentValue) : newValue;
 
-    [...subscribers].forEach((sub) => sub.execute());
-  }
+		[...subscribers].forEach((sub) => sub.execute());
+	}
 
-  return [getter, setter] as const;
+	return [getter, setter] as const;
 }
