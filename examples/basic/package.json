@@ -10,8 +10,8 @@
     "lint": "eslint \"**/*.ts*\" --fix"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.3.2",
+    "typescript": "5.0.2",
+    "vite": "4.3.2",
     "eslint": "8.40.0",
     "eslint-config-custom": "workspace:*"
   },

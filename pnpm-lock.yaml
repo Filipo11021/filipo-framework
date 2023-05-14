@@ -5,10 +5,10 @@ importers:
   .:
     devDependencies:
       husky:
-        specifier: ^8.0.3
+        specifier: 8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^13.2.2
+        specifier: 13.2.2
         version: 13.2.2
       prettier:
         specifier: 2.8.8
@@ -30,11 +30,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/eslint-config-custom
       typescript:
-        specifier: ^5.0.2
+        specifier: 5.0.2
         version: 5.0.2
       vite:
-        specifier: ^4.3.2
-        version: 4.3.5(@types/node@20.1.1)
+        specifier: 4.3.2
+        version: 4.3.2(@types/node@20.1.1)
 
   packages/eslint-config-custom:
     devDependencies:
@@ -2778,7 +2778,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.3.5(@types/node@20.1.1)
+      vite: 4.3.2(@types/node@20.1.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -2789,8 +2789,8 @@ packages:
       - terser
     dev: true
 
-  /vite@4.3.5(@types/node@20.1.1):
-    resolution: {integrity: sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==}
+  /vite@4.3.2(@types/node@20.1.1):
+    resolution: {integrity: sha512-9R53Mf+TBoXCYejcL+qFbZde+eZveQLDYd9XgULILLC1a5ZwPaqgmdVpL8/uvw2BM/1TzetWjglwm+3RO+xTyw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -2876,7 +2876,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.5.0
-      vite: 4.3.5(@types/node@20.1.1)
+      vite: 4.3.2(@types/node@20.1.1)
       vite-node: 0.31.0(@types/node@20.1.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

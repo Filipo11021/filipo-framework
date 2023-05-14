@@ -6,7 +6,8 @@
 	"license": "MIT",
 	"scripts": {
 		"lint": "eslint \"**/*.ts*\" --fix",
-		"test": "vitest"
+		"test": "vitest run",
+		"test:watch": "vitest"
 	},
 	"devDependencies": {
 		"eslint": "8.40.0",
