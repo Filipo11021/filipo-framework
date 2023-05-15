@@ -1,0 +1,6 @@
+{
+	"name": "button",
+	"version": "0.0.1",
+	"main": "./button.tsx",
+	"types": "./button.tsx"
+}
