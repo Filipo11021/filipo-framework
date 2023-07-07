@@ -10,10 +10,17 @@ export function Text() {
 		setText(target.value);
 	}
 
+	function resetText() {
+		setText('');
+	}
+
 	return (
 		<div>
 			<p style='text-align: start;d'>text: {text}</p>
 			<input oninput={updateText} type='text' value={text} />
+			<button class='btn' onClick={resetText}>
+				reset
+			</button>
 		</div>
 	);
 }

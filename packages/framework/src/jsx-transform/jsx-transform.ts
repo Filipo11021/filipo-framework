@@ -30,7 +30,8 @@ export function createElement(
 
 			if (typeof value === 'function') {
 				effect(() => {
-					element.setAttribute(name, String(value()));
+					// eslint-disable-next-line
+					(element as any)[name] = value();
 				});
 				continue;
 			}
