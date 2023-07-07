@@ -1,1 +1,1 @@
-pn example
+npm run example
