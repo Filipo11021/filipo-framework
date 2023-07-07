@@ -10,7 +10,8 @@
     "lint": "eslint \"**/*.ts*\" --fix",
     "lint:check": "eslint \"**/*.ts*\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "example": "storybook dev -p 6006"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.11",
