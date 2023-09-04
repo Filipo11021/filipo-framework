@@ -1,9 +1,13 @@
-import { context, setContext } from '../shared';
+import type { Context } from '../types';
 
-export function untrack<Value>(fn: () => Value) {
-	const prevContext = context;
-	setContext([]);
-	const res = fn();
-	setContext(prevContext);
-	return res;
+export function buildUntrack({ context }: { context: Context }) {
+	return <Value>(fn: () => Value) => {
+		const prevContext = context.getAll();
+
+		context.clear();
+		const res = fn();
+		context.set(prevContext);
+
+		return res;
+	};
 }

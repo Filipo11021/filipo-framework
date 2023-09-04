@@ -1,8 +1,11 @@
 import { describe, expect, test } from 'vitest';
 
-import { context } from '../shared';
+import { buildContext } from '../context/context';
 
-import { effect } from './effect';
+import { buildEffect } from './effect';
+
+const context = buildContext();
+const effect = buildEffect({ context });
 
 describe('effect', () => {
 	test('create effect', () => {
@@ -15,32 +18,32 @@ describe('effect', () => {
 	});
 
 	test('context length in effect function', () => {
-		expect(context.length).toBe(0);
+		expect(context.size()).toBe(0);
 
 		effect(() => {
-			expect(context.length).toBe(1);
+			expect(context.size()).toBe(1);
 		});
 
-		expect(context.length).toBe(0);
+		expect(context.size()).toBe(0);
 	});
 
 	test('nested effects', () => {
-		expect(context.length).toBe(0);
+		expect(context.size()).toBe(0);
 
 		effect(() => {
-			expect(context.length).toBe(1);
+			expect(context.size()).toBe(1);
 
 			effect(() => {
-				expect(context.length).toBe(2);
+				expect(context.size()).toBe(2);
 
 				effect(() => {
-					expect(context.length).toBe(3);
+					expect(context.size()).toBe(3);
 				});
 			});
 
-			expect(context.length).toBe(1);
+			expect(context.size()).toBe(1);
 		});
 
-		expect(context.length).toBe(0);
+		expect(context.size()).toBe(0);
 	});
 });

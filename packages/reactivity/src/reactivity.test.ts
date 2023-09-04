@@ -1,7 +1,12 @@
 import { describe, expect, test } from 'vitest';
 
-import { effect } from './effect/effect';
-import { signal } from './signal/signal';
+import { buildContext } from './context/context';
+import { buildEffect } from './effect/effect';
+import { buildSignal } from './signal/signal';
+
+const context = buildContext();
+const signal = buildSignal({ context });
+const effect = buildEffect({ context });
 
 describe('effect + signal', () => {
 	test('reaction to set new value', () => {

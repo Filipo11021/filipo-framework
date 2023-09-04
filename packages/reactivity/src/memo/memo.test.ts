@@ -1,6 +1,15 @@
 import { describe, expect, test } from 'vitest';
 
-import { memo } from './memo';
+import { buildContext } from '../context/context';
+import { buildEffect } from '../effect/effect';
+import { buildSignal } from '../signal/signal';
+
+import { buildMemo } from './memo';
+
+const context = buildContext();
+const signal = buildSignal({ context });
+const effect = buildEffect({ context });
+const memo = buildMemo({ effect, signal });
 
 describe('memo', () => {
 	test('create and read memo', () => {

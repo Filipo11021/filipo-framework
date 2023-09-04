@@ -1,6 +1,4 @@
-import { context } from '../shared';
-
-import type { Subscriber } from '../types';
+import type { Context, EffectFn, Subscriber } from '../types';
 
 function cleanup(subscriber: Subscriber) {
 	for (const dependency of subscriber.dependencies) {
@@ -10,16 +8,18 @@ function cleanup(subscriber: Subscriber) {
 	subscriber.dependencies.clear();
 }
 
-export function effect(fn: () => void) {
-	const subscriber: Subscriber = {
-		execute() {
-			cleanup(subscriber);
-			context.push(subscriber);
-			fn();
-			context.pop();
-		},
-		dependencies: new Set(),
-	};
+export function buildEffect({ context }: { context: Context }): EffectFn {
+	return (fn: () => void) => {
+		const subscriber: Subscriber = {
+			execute() {
+				cleanup(subscriber);
+				context.push(subscriber);
+				fn();
+				context.pop();
+			},
+			dependencies: new Set(),
+		};
 
-	subscriber.execute();
+		subscriber.execute();
+	};
 }

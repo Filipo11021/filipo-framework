@@ -1,14 +1,21 @@
-import { effect } from '../effect/effect';
-import { signal } from '../signal/signal';
+import type { EffectFn, SignalFn } from '../types';
 
-export function memo<Value>(fn: () => Value) {
-	const [value, setValue] = signal(fn());
-	let skip = true;
+export function buildMemo({
+	effect,
+	signal,
+}: {
+	signal: SignalFn;
+	effect: EffectFn;
+}) {
+	return <Value>(fn: () => Value) => {
+		const [value, setValue] = signal(fn());
+		let skip = true;
 
-	effect(() => {
-		if (skip) return (skip = false);
-		setValue(fn());
-	});
+		effect(() => {
+			if (skip) return (skip = false);
+			setValue(fn());
+		});
 
-	return value;
+		return value;
+	};
 }

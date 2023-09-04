@@ -1,6 +1,11 @@
 import { describe, expect, test } from 'vitest';
 
-import { signal } from './signal';
+import { buildContext } from '../context/context';
+
+import { buildSignal } from './signal';
+
+const context = buildContext();
+const signal = buildSignal({ context });
 
 describe('create and update signals', () => {
 	test('create signal', () => {
