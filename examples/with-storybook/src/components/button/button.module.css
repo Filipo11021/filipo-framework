@@ -32,7 +32,7 @@
 	color: #fff;
 }
 
-.btn-primary:is(:focus, :focus-visible) {
+.btn-primary:focus-visible {
 	border: 3px solid var(--primary-dark);
 }
 
@@ -41,7 +41,7 @@
 	color: #fff;
 }
 
-.btn-secondary:is(:focus, :focus-visible) {
+.btn-secondary:focus-visible {
 	border: 3px solid var(--secondary-dark);
 }
 
@@ -50,6 +50,6 @@
 	color: #fff;
 }
 
-.btn-success:is(:focus, :focus-visible) {
+.btn-success:focus-visible {
 	border: 3px solid var(--success-dark);
 }
